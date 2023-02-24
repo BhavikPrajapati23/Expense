@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AdminLTE 3 | Dashboard</title>
+
+    <%- include('../layouts/css.ejs') -%> <%- include('../layouts/js1.ejs') -%>
+  </head>
+  <body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+      <div
+        class="preloader flex-column justify-content-center align-items-center"
+      >
+        <img
+          class="animation__shake"
+          src="dist/img/AdminLTELogo.png"
+          alt="AdminLTELogo"
+          height="60"
+          width="60"
+        />
+      </div>
+
+      <%- include('../layouts/navbar.ejs') -%> <%- include('../layouts/sidebar.ejs')
+      -%>
+
+      <div class="content-wrapper">
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0">Edit Account</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div
+                class="container justify-content-center align-items-center"
+                style="display: flex;"
+              >
+              <div class="card-body">
+                <form action="/updateAccount/<%= data._id %>" method="post">
+                  <div class="mb-3">
+                    <label class="form-label">Account Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="accountname"
+                      value="<%= data.name %>"
+                      aria-describedby="emailHelp"
+                      required
+                    />
+                  </div>
+                  <button type="submit" class="btn btn-outline-success">
+                    Update Account
+                  </button>
+                </form>
+              </div>
+            </div>
+            
+            
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+
+      <%- include('../layouts/footer.ejs') -%>
+
+      <aside class="control-sidebar control-sidebar-dark"></aside>
+    </div>
+
+    <%- include('../layouts/js.ejs') -%>
+  </body>
+</html>

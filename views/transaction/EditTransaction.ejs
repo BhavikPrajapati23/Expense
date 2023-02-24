@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AdminLTE 3 | Dashboard</title>
+
+    <%- include('../layouts/css.ejs') -%> <%- include('../layouts/js1.ejs') -%>
+  </head>
+  <body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+      <div
+        class="preloader flex-column justify-content-center align-items-center"
+      >
+        <img
+          class="animation__shake"
+          src="dist/img/AdminLTELogo.png"
+          alt="AdminLTELogo"
+          height="60"
+          width="60"
+        />
+      </div>
+
+      <%- include('../layouts/navbar.ejs') -%> <%- include('../layouts/sidebar.ejs')
+      -%>
+
+      <div class="content-wrapper">
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0">Edit Transaction</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div
+                class="container justify-content-center align-items-center"
+                style="display: flex;"
+              >
+              <div class="card-body">
+                <form action="/updateTransaction/<%= data._id %>" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <input type="text" class="form-control" name="category" value="<%= data.category %>" aria-describedby="emailHelp" required>
+                      </div>
+                      <div class="mb-3">
+                          <label class="form-label">Amount</label>
+                          <input type="text" class="form-control" name="amount" value="<%= data.amount %>" aria-describedby="emailHelp" required>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="radio" name="transaction" value="Income" id="income" <% if(data.transaction == 'Income'){ %>checked <% }%>>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            Income
+                          </label>
+                        </div>
+                        <div class="form-check mb-3">
+                          <input class="form-check-input" type="radio" name="transaction" value="Expense" id="expense" 
+                          <% if (data.transaction == 'Expense') {%>checked<%}%>>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            Expense
+                          </label>
+                      </div>
+                  <button type="submit" class="btn btn-outline-success">
+                    Update Transaction
+                  </button>
+                </form>
+              </div>
+            </div>
+            
+            
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+
+      <%- include('../layouts/footer.ejs') -%>
+
+      <aside class="control-sidebar control-sidebar-dark"></aside>
+    </div>
+
+    <%- include('../layouts/js.ejs') -%>
+  </body>
+</html>
